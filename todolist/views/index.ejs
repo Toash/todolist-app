@@ -1,0 +1,40 @@
+<%- include("./partials/header") %>
+
+
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Todo List</a>
+
+      
+    </div>
+  </nav>
+  
+<div class="container-fluid">
+  <p>made by meeee</p>
+    <!--Learn about forms-->
+    <form action="/add/todo" method = "POST" class="d-flex">
+        <!--type stuff-->
+        <input type="text" name="todo" id="" class="form-control" placeholder="Enter Todo">
+        <!--button-->
+        <input type="submit" value="Add Todo" class="btn btn-md btn-primary mx-2">
+    </form>
+
+    <!--The list-->
+    <ul class="list-group my-5">
+      <!--foreach todos in todo list-->
+      <% todo.forEach(todos => { %>
+        <!--todos.todo is the string in the todos?-->
+        <li class="list-group-item"><%= todos.todo %>
+
+        <!-- delete current todo -->
+          <a href="/delete/todo/<%= todos._id%>" class="btn btn-danger btn-sm">Delete</a>
+        
+        </li>
+
+        
+      <% }) %>
+
+      </ul>
+</div>
+
+<%- include("./partials/footer") %>
